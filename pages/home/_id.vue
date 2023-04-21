@@ -86,6 +86,9 @@
     <div v-if="!id">
       <Menu />
     </div>
+    <div v-else>
+      <CatalogMenu :id="id" />
+    </div>
   </div>
 </template>
 
@@ -94,6 +97,7 @@ import Search from '../../components/Search.vue'
 import axios from 'axios'
 import Slider from '../../components/Slider.vue'
 import Menu from '../../components/Menu.vue'
+import CatalogMenu from '../../components/CatalogMenu.vue'
 export default {
   data() {
     return {
@@ -101,7 +105,7 @@ export default {
       loading: true,
     }
   },
-  components: { Search, Slider, Menu },
+  components: { Search, Slider, Menu, CatalogMenu },
   asyncData(context) {
     const { id } = context.params
     return { id }
