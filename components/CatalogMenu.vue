@@ -20,7 +20,11 @@
         </nuxt-link>
       </div>
     </div>
-    <div v-else>No menu items found.</div>
+    <div v-else class="h-screen bg-white justify-center items-center flex">
+      <div class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-yellow-600 rounded-full" role="status" aria-label="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </div>
 </template>
 

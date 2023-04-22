@@ -61,13 +61,14 @@ export default {
     return {
       menu: [],
       menus: [],
-      loading: true
+      loading: true,
+      id: ''
     }
   },
 
   asyncData(context) {
     const { id } = context.params
-    return { id }
+    return { id: id }
   },
   created() {
     axios.get('https://restoranmenu1.vercel.app/menu/' + this.id)
