@@ -1,6 +1,6 @@
 <template>
   <div class="" v-if="!loading">
-    <img :src="`${url}`" alt="" />
+    <img :src="`${url}`" alt="" class="rounded-t-3xl" />
   </div>
   <div class="justify-center items-center flex my-40" v-else>
     <div role="status">
