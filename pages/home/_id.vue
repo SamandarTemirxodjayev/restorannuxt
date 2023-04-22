@@ -27,9 +27,14 @@
     v-else
     class="container mx-auto px-4 sm:px-6 lg:px-8 pt-5 bg-deafult-color"
   >
-    <div class="text-4xl font-bold font-exo-2">
-      Delicious <br />
-      food for you
+    <div class="flex justify-between mr-5 ">
+      <div class="text-4xl font-bold font-exo-2">
+        Delicious <br />
+        food for you
+      </div>
+      <!-- <nuxt-link to='/cart' class="mt-5">
+        <img src="@/assets/shopping-cart.png" alt="" height="35px" width="35px" />
+      </nuxt-link> -->
     </div>
     <div class="mt-6 relative">
       <Search />

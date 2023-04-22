@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-t-lg rounded-b-sm" v-if="!loading">
-    <img :src="`${url}`" alt="">
+    <img :src="`${url}`" alt="" class="rounded-t-lg rounded-b-sm">
   </div>
   <div class="h-40 items-center justify-center flex" v-else>
     <div role="status">
