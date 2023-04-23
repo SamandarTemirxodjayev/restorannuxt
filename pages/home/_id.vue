@@ -87,7 +87,7 @@
         </div>
       </div>
     </div>
-    <slider />
+    <slider :photos="photos" />
     <div v-if="!id">
       <Menu />
     </div>
@@ -99,32 +99,27 @@
 
 <script>
 import Search from '../../components/Search.vue'
-import axios from 'axios'
 import Slider from '../../components/Slider.vue'
 import Menu from '../../components/Menu.vue'
 import CatalogMenu from '../../components/CatalogMenu.vue'
+
 export default {
-  data() {
-    return {
-      catalogs: [],
-      loading: true,
+  components: { Search, Slider, Menu, CatalogMenu },
+  async asyncData({ params, $axios }) {
+    const { id } = params
+    try {
+      const responsecatalog = await $axios.get('/catalog')
+      const responsebanners = await $axios.get('/banner')
+      return { photos: responsebanners.data.banners, catalogs: responsecatalog.data.catalogs, loading: false, id }
+    } catch (error) {
+      console.error(error)
+      return { catalogs: [], loading: false, id }
     }
   },
-  components: { Search, Slider, Menu, CatalogMenu },
-  asyncData(context) {
-    const { id } = context.params
-    return { id }
-  },
-  created() {
-    axios
-      .get('https://restoranmenu1.vercel.app/catalog')
-      .then((response) => {
-        this.catalogs = response.data.catalogs
-        this.loading = false
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  data() {
+    return {
+      loading: true,
+    }
   },
 }
 </script>

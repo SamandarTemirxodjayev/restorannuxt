@@ -39,32 +39,22 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   methods: {
     handleLoad() {
-      const timer = setTimeout(() => {
-        this.loading = false
-      }, 500)
-      return () => clearTimeout(timer)
+      this.loading = false
     },
   },
   data() {
     return {
-      photos: [],
       loading: true,
     }
   },
-  created() {
-    axios
-      .get('https://restoranmenu1.vercel.app/banner')
-      .then((response) => {
-        console.log(response.data.banners)
-        this.photos = response.data.banners
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  props: {
+    photos:{
+      type: Array,
+      required: true,
+    }
   },
 }
 </script>

@@ -52,7 +52,6 @@ export default {
     },
   },
   created() {
-    console.log(this.id)
     axios
       .get(`https://restoranmenu1.vercel.app/catalogMenus/${this.id}`)
       .then((response) => {
