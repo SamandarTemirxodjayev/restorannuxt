@@ -89,7 +89,7 @@
     </div>
     <slider :photos="photos" />
     <div v-if="!id">
-      <Menu />
+      <Menu :catalogs="catalogs"  />
     </div>
     <div v-else>
       <CatalogMenu :id="id" />

@@ -34,20 +34,21 @@ import MenuImg from './MenuImg.vue'
 
 export default {
   components: { MenuImg },
+  props:{
+    catalogs: {
+      type: Array,
+      required: true
+    },
+  },
   data() {
     return {
-      menus: [],
-      catalogs: [],
       loading: true,
+      menus: []
     }
   },
   created() {
-    axios.get('https://restoranmenu1.vercel.app/catalog').then((res) => {
-      this.catalogs = res.data.catalogs
-    })
     axios.get('https://restoranmenu1.vercel.app/menu').then((res) => {
       this.menus = res.data.menus
-      setTimeout(() => {}, 500)
     })
   },
   methods: {
