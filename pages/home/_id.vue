@@ -105,6 +105,11 @@ import CatalogMenu from '../../components/CatalogMenu.vue'
 
 export default {
   components: { Search, Slider, Menu, CatalogMenu },
+  data() {
+    return {
+      loading: true,
+    }
+  },
   async asyncData({ params, $axios }) {
     const { id } = params
     try {
@@ -116,10 +121,6 @@ export default {
       return { catalogs: [], loading: false, id }
     }
   },
-  data() {
-    return {
-      loading: true,
-    }
-  },
+  
 }
 </script>
